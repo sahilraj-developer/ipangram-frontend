@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Home from './pages/Home';
+import Department from './pages/Department';
 import './App.css';
 
-function App() {
+const App = () => {
+  const token = localStorage.getItem('token')
+  const userRole = localStorage.getItem('userRole')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        {token !==null &&
+ <nav>
+ <ul>
+   <li><Link to="/">Home</Link></li>
+   {userRole === "manager" &&
+       <li><Link to="/department">Departments</Link></li>
+   }
+
+ </ul>
+</nav>
+        }
+       
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/department" element={<Department />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
