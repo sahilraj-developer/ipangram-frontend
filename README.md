@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+Employee Management System
+This project implements an Employee Management System with features for both employees and managers. Below is an overview of the functionalities and how they are implemented.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend Features
+1. Signup/Login Page
+Implemented a signup/login page for both employees and managers.
+Users are authenticated using JWT tokens stored in local storage.
 
-## Available Scripts
+2. Department Management
+Managers can create, update, and delete departments.
+Employees have view-only access to department details.
 
-In the project directory, you can run:
+3. Employee List Page
+Displays a list of all employees.
+Employees and managers can view basic employee details.
 
-### `npm start`
+4. Employee Details Page/Modal
+Provides detailed information about each employee.
+Accessible to both managers and employees.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5. Filtering Employees
+Implemented filtering based on employee name and location.
+Sorting can be done in ascending and descending order via API endpoints.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+6. Department Assignment
+Managers can assign departments to employees.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Backend Features
+1. Authentication
+Implemented login/signup routes for user authentication using JWT tokens.
 
-### `npm run eject`
+2. Department CRUD Operations
+Created endpoints for creating, reading, updating, and deleting departments.
+Only managers have permission to perform these operations.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Employee CRUD Operations
+Implemented endpoints for managing employees, including create, read, update, and delete operations.
+Only managers can update or delete employee records.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Filtering Endpoints
+Implemented two endpoints to filter employees:
+Sorting employees by location in ascending order.
+Sorting employees by name in ascending and descending order based on user selection.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Configured a database with necessary tables and relationships to store employee and department data securely.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Data access control ensures that employees can only access their own data, while managers can view departmental data including assigned employees.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the project locally:
 
-### Code Splitting
+Clone this repository.
+Install dependencies in both "frontend" and "employee-manager-backend" using npm install.
+Start the frontend and backend servers concurrently using npm start.
+Access the application at http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Technologies Used
+React.js for frontend development.
+Node.js and Express.js for backend API development.
+MongoDB as the database.
+Axios for handling API requests.
+JWT for user authentication and authorization.
